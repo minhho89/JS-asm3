@@ -68,7 +68,7 @@ cua_so1.onclick = () => {
       cua_so1.src = anh_vu_tru;
       break;
   }
-
+}
 };
 cua_so2.onclick = () => {
   switch (so_ngau_nhien){
@@ -80,13 +80,10 @@ cua_so2.onclick = () => {
       break;
     case 3:
       cua_so2.src = anh_nguoi_may;
-      gameOver();
+
       break;
   }
-  alert("Da click vao cua so 2");
-  alert("Trường hợp số: " + so_ngau_nhien);
   }
-};
 cua_so3.onclick = () => {
   switch (so_ngau_nhien){
     case 1:
@@ -100,8 +97,6 @@ cua_so3.onclick = () => {
       cua_so3.src = anh_bai_bien;
       break;
   }
-  alert("Da click vao cua so 3");
-  alert("Trường hợp số: " + so_ngau_nhien);
 };
 
 //Tạo hàm gameOver
