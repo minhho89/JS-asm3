@@ -9,6 +9,11 @@ body {
   background-color: #00ffff;
 }
 
+.container {
+  width: 70%;
+  margin: 0 auto;
+};
+
 .tieu-de_row {
   color: #00ffff;
   margin-top: 42px;
@@ -17,11 +22,11 @@ body {
 
 .huong-dan {
   display: inline;
+  color: #00ffff;
 }
 
 .bang-huong-dan {
   margin: 0 auto;
-  width: 50%;
   text-align: left;
 }
 
