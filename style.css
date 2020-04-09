@@ -1,0 +1,77 @@
+body {
+  background-color: #010165;
+  margin: 0px;
+  text-align: center;
+  font-family: "Work Sans";
+}
+
+.header {
+  background-color: #00ffff;
+}
+
+.tieu-de_row {
+  color: #00ffff;
+  margin-top: 42px;
+  margin-bottom: 21px;
+}
+
+.huong-dan {
+  display: inline;
+}
+
+.bang-huong-dan {
+  margin: 0 auto;
+  width: 50%;
+  text-align: left;
+}
+
+td, tr {
+  padding-top: 20px;
+}
+.so-thu-tu {
+  color: #00ffff;
+  font-size: 36px;
+}
+
+.noi-dung-hd {
+    color: white;
+    padding-left: 40px;
+}
+
+.khung-cua {
+  margin-top: 30px;
+}
+#cua-1, #cua-2, #cua-3 {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.nut-bat-dau_row {
+  margin: auto;
+  width: 120px;
+  height: 50px;
+  background-color: #eb6536;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+
+.bang-ket-qua {
+  width: 240px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.bang-ket-qua th {
+  color: white;
+  font-size: 12px;
+}
+
+.o-diem {
+  margin: auto;
+  width: 60px;
+  height: 60px;
+  background-color: #00ffff;
+  padding-top: 10px;
+  font-size: 36px;
+}
