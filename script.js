@@ -9,6 +9,8 @@ var nut_Start = document.getElementById("start");
 var so_ngau_nhien;
 var is_dang_choi = true;
 var so_cua_mo = 0;
+var so_lan_thang_hienTai = 0;
+var so_lan_thang_caoNhat = 0;
 
 /************************************
 Gán ảnh vào các cửa 1 cách ngẫu nhiên
@@ -51,6 +53,7 @@ Gán ảnh vào các cửa 1 cách ngẫu nhiên
   var is_nguoi_may = (cua_so_x) => {
     if(cua_so_x.src === anh_nguoi_may){
       gameOver();
+
     }
   }
 
@@ -61,6 +64,7 @@ cua_so1.onclick = () => {
       case 1:
           cua_so1.src = anh_nguoi_may;
           gameOver();
+          ghiDiem_caoNhat();
           break;
       case 2:
           cua_so1.src = anh_bai_bien;
@@ -77,15 +81,20 @@ cua_so1.onclick = () => {
       case 1:
           cua_so1.src = anh_nguoi_may;
           gameOver();
+          ghiDiem_caoNhat();
           break;
       case 2:
           cua_so1.src = anh_bai_bien;
           gameOver("win");
+          ghiDiem_hienTai();
+          ghiDiem_caoNhat();
           break;
 
       case 3:
           cua_so1.src = anh_vu_tru;
           gameOver("win");
+          ghiDiem_hienTai();
+          ghiDiem_caoNhat();
           break;
       }
       so_cua_mo++;
@@ -104,6 +113,7 @@ cua_so2.onclick = () => {
         case 3:
           cua_so2.src = anh_nguoi_may;
           gameOver();
+          ghiDiem_caoNhat();
           break;
           }
           so_cua_mo++;
@@ -114,14 +124,19 @@ cua_so2.onclick = () => {
         case 1:
           cua_so2.src = anh_bai_bien;
           gameOver("win");
+          ghiDiem_hienTai();
+          ghiDiem_caoNhat();
           break;
         case 2:
           cua_so2.src = anh_vu_tru;
           gameOver("win");
+          ghiDiem_hienTai();
+          ghiDiem_caoNhat();
           break;
         case 3:
           cua_so2.src = anh_nguoi_may;
           gameOver();
+          ghiDiem_caoNhat();
           break;
           }
       }
@@ -135,6 +150,7 @@ cua_so3.onclick = () => {
         case 2:
           cua_so3.src = anh_nguoi_may;
           gameOver();
+          ghiDiem_caoNhat();
           break;
         case 3:
           cua_so3.src = anh_bai_bien;
@@ -146,6 +162,8 @@ cua_so3.onclick = () => {
         case 1:
           cua_so3.src = anh_vu_tru;
           gameOver("win");
+          ghiDiem_hienTai();
+          ghiDiem_caoNhat();
           break;
         case 2:
           cua_so3.src = anh_nguoi_may;
@@ -154,6 +172,8 @@ cua_so3.onclick = () => {
         case 3:
           cua_so3.src = anh_bai_bien;
           gameOver("win");
+          ghiDiem_hienTai();
+          ghiDiem_caoNhat();
           break;
       }
     }
@@ -166,17 +186,45 @@ nut_Start.onclick = () => {
   cua_so1.src = anh_cua_dong;
   cua_so2.src = anh_cua_dong;
   cua_so3.src = anh_cua_dong;
+  so_cua_mo = 0;
+  tao_soNgauNhien();
+  nut_Start.innerHTML ="Chúc may mắn!"
+  is_dang_choi = true;
+  ghiDiem_hienTai();
 };
 
 //Tạo hàm gameOver
 var gameOver = (trang_thai) => {
   if (trang_thai === "win") {
     nut_Start.innerHTML = "Bạn đã thắng! Click để chơi lại.";
+    so_lan_thang_hienTai ++;
   }
   else {
     nut_Start.innerHTML = "Bạn đã thua! Click để chơi lại.";
+    so_lan_thang_hienTai = 0;
   }
   is_dang_choi = false;
 }
 
+/*****************************
+    HÀM ĐẾM SỐ LẦN THẮNG
+****************************/
+var diem_hienTai = document.getElementById("diem-hien-tai");
+var diem_caoNhat = document.getElementById("diem-cao-nhat");
+var ghiDiem_hienTai = () => {
+  diem_hienTai.innerHTML = so_lan_thang_hienTai;
+}
+
+var ghiDiem_caoNhat = () => {
+  if (so_lan_thang_hienTai > so_lan_thang_caoNhat) {
+    so_lan_thang_caoNhat = so_lan_thang_hienTai;
+  }
+  diem_caoNhat.innerHTML = so_lan_thang_caoNhat;
+
+}
+
+
+//KHỞI TẠO
 tao_soNgauNhien();
+ghiDiem_hienTai();
+ghiDiem_caoNhat();
