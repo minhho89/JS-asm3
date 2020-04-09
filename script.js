@@ -1,97 +1,113 @@
-var doorImage1 = document.getElementById("door1");
-var doorImage2 = document.getElementById("door2");
-var doorImage3 = document.getElementById("door3");
-var numClosedDoors= 3;
-var openDoor1;
-var openDoor2;
-var openDoor3;
-var startButton = document.getElementById("start");
-var closedDoorPath = 'https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/closed_door.svg';
-var currentlyPlaying = true;
+var anh_nguoi_may = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/robot.svg"
+var anh_bai_bien = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/beach.svg"
+var anh_vu_tru = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/space.svg"
+var cua_so1 = document.getElementById("cua-1");
+var cua_so2 = document.getElementById("cua-2");
+var cua_so3 = document.getElementById("cua-3");
+var nut_Start = document.getElementById("start");
+var so_ngau_nhien;
+var is_dang_choi = true;
 
-const isBot = (door) => {
-  if(door.src === botDoorPath){
-    return true;
+/************************************
+Gán ảnh vào các cửa 1 cách ngẫu nhiên
+************************************/
+  /** TẠO HÀM QUAY SỐ NGẪU NHIÊN:
+  - Tạo ra 3 trường hợp, mỗi trường hợp cửa nhận 1 giá trị khác nhau
+  - Tạo hàm quay số interger ngẫu nhiên
+     Thuật toán: randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+     Nguồn: https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
+  - Ta có tổng cộng 3 trường hợp nên số min = 1; max = 3
+  **/
+  const tao_soNgauNhien = () => {
+      var min = 1;
+      var max = 3;
+      so_ngau_nhien = Math.floor(Math.random()*(max-min+1)+1);
+      return so_ngau_nhien;
+    }
+  /** TẠO HÀM GÁN HÌNH VÀO CỬA THEO 3 TRƯỜNG HỢP NGẪU NHIÊN**/
+  const gan_hinhVaoCua = () => {
+    tao_soNgauNhien();
+    switch (so_ngau_nhien) {
+      case 1:
+        cua_so1.src = anh_nguoi_may;
+        cua_so2.src = anh_bai_bien;
+        cua_so3.src = anh_vu_tru;
+        break;
+      case 2:
+        cua_so3.src = anh_nguoi_may;
+        cua_so1.src = anh_bai_bien;
+        cua_so2.src = anh_vu_tru;
+        break;
+      case 3:
+        cua_so2.src = anh_nguoi_may;
+        cua_so3.src = anh_bai_bien;
+        cua_so1.src = anh_vu_tru;
+        break;
+    }
   }
-  else {return false;}
-}
-const isClicked = (door) => {
-  if(door.src ===closedDoorPath){
-    return false;
+
+//Xét xem cửa có Robot không? Nếu có thì gameOver
+  var is_nguoi_may = (cua_so_x) => {
+    if(cua_so_x === anh_nguoi_may){
+      gameOver();
+    }
   }
-  else {return true;}
-}
-const playDoor = (door) => {
-  numClosedDoors--;
-  if(numClosedDoors === 0){
-    gameOver('win');
+
+//Khi click vào các cửa thì các sẽ đổi hình
+cua_so1.onclick = () => {
+  if(is_dang_choi == true){
+  switch (so_ngau_nhien){
+    case 1:
+      cua_so1.src = anh_nguoi_may;
+      gameOver();
+      break;
+    case 2:
+      cua_so1.src = anh_bai_bien;
+      break;
+    case 3:
+      cua_so1.src = anh_vu_tru;
+      break;
   }
-  else if(isBot(door)==true){
-    gameOver();
+
+};
+cua_so2.onclick = () => {
+  switch (so_ngau_nhien){
+    case 1:
+      cua_so2.src = anh_bai_bien;
+      break;
+    case 2:
+      cua_so2.src = anh_vu_tru;
+      break;
+    case 3:
+      cua_so2.src = anh_nguoi_may;
+      gameOver();
+      break;
   }
-}
-const randomChoreDoorGenerator = () => {
-  var choreDoor = Math.floor(Math.random() * numClosedDoors);
-  if(choreDoor === 1){
-     openDoor1 = botDoorPath;
-     openDoor2 = beachDoorPath;
-     openDoor3 = spaceDoorPath;
-     }
-  else if(choreDoor === 2){
-     openDoor2 = botDoorPath;
-     openDoor1 = beachDoorPath;
-     openDoor3 = spaceDoorPath;
-     }
-   else if(choreDoor === 3){
-     openDoor3 = botDoorPath;
-     openDoor1 = beachDoorPath;
-     openDoor2 = spaceDoorPath;
-     }
-}
-var botDoorPath = 'https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/robot.svg';
-var beachDoorPath = 'https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/beach.svg';
-var spaceDoorPath = 'https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/space.svg';
-door1.onclick = () => {
-  if(currentlyPlaying && !isClicked(doorImage1)){
-      doorImage1.src = openDoor1;
+  alert("Da click vao cua so 2");
+  alert("Trường hợp số: " + so_ngau_nhien);
   }
-  playDoor(door1);
+};
+cua_so3.onclick = () => {
+  switch (so_ngau_nhien){
+    case 1:
+      cua_so3.src = anh_vu_tru;
+      break;
+    case 2:
+      cua_so3.src = anh_nguoi_may;
+      gameOver();
+      break;
+    case 3:
+      cua_so3.src = anh_bai_bien;
+      break;
+  }
+  alert("Da click vao cua so 3");
+  alert("Trường hợp số: " + so_ngau_nhien);
+};
+
+//Tạo hàm gameOver
+var gameOver = () => {
+  nut_Start.innerHTML = "Bạn đã thua! Click để chơi lại."
+  is_dang_choi = false;
 }
 
-door2.onclick = () => {
-  if(currentlyPlaying && !isClicked(doorImage2)){
-     doorImage2.src = openDoor2;
-  }
- playDoor(door2);
-}
-door3.onclick = () => {
-  if(currentlyPlaying && !isClicked(doorImage3)){
-    doorImage3.src = openDoor3;
-  }
-  playDoor(door3);
-}
-
-const startRound = () => {
-  doorImage1.src = closedDoorPath;
-  doorImage2.src = closedDoorPath;
-  doorImage3.src = closedDoorPath;
-  numClosedDoors = 3;
-  startButton.innerHTML = 'Good luck!';
-  currentlyPlaying = true;
-  randomChoreDoorGenerator();
-}
-
- startButton.onclick = () => {
- if(!currentlyPlaying){
-  startRound();
-  }
-}
-const gameOver = (str) => {
-  if(str === 'win'){
-    startButton.innerHTML = 'You win! Play again?';
-  }
-  else { startButton.innerHTML = 'Game over! Play     again?';
-       }
- currentlyPlaying = false;
-}
-startRound();
+tao_soNgauNhien();
