@@ -1,12 +1,14 @@
 var anh_nguoi_may = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/robot.svg"
 var anh_bai_bien = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/beach.svg"
 var anh_vu_tru = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/space.svg"
+var anh_cua_dong ="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/closed_door.svg"
 var cua_so1 = document.getElementById("cua-1");
 var cua_so2 = document.getElementById("cua-2");
 var cua_so3 = document.getElementById("cua-3");
 var nut_Start = document.getElementById("start");
 var so_ngau_nhien;
 var is_dang_choi = true;
+var so_cua_mo = 0;
 
 /************************************
 Gán ảnh vào các cửa 1 cách ngẫu nhiên
@@ -26,7 +28,6 @@ Gán ảnh vào các cửa 1 cách ngẫu nhiên
     }
   /** TẠO HÀM GÁN HÌNH VÀO CỬA THEO 3 TRƯỜNG HỢP NGẪU NHIÊN**/
   const gan_hinhVaoCua = () => {
-    tao_soNgauNhien();
     switch (so_ngau_nhien) {
       case 1:
         cua_so1.src = anh_nguoi_may;
@@ -48,60 +49,133 @@ Gán ảnh vào các cửa 1 cách ngẫu nhiên
 
 //Xét xem cửa có Robot không? Nếu có thì gameOver
   var is_nguoi_may = (cua_so_x) => {
-    if(cua_so_x === anh_nguoi_may){
+    if(cua_so_x.src === anh_nguoi_may){
       gameOver();
     }
   }
 
 //Khi click vào các cửa thì các sẽ đổi hình
 cua_so1.onclick = () => {
-  if(is_dang_choi == true){
-  switch (so_ngau_nhien){
-    case 1:
-      cua_so1.src = anh_nguoi_may;
-      gameOver();
-      break;
-    case 2:
-      cua_so1.src = anh_bai_bien;
-      break;
-    case 3:
-      cua_so1.src = anh_vu_tru;
-      break;
-  }
-}
+  if(is_dang_choi == true && so_cua_mo === 0){
+    switch (so_ngau_nhien){
+      case 1:
+          cua_so1.src = anh_nguoi_may;
+          gameOver();
+          break;
+      case 2:
+          cua_so1.src = anh_bai_bien;
+          break;
+      case 3:
+          cua_so1.src = anh_vu_tru;
+          break;
+      }//switch
+      so_cua_mo++;
+      // alert("số cửa mở: " + so_cua_mo);
+    } //if
+  else if (is_dang_choi == true && so_cua_mo === 1){
+    switch (so_ngau_nhien){
+      case 1:
+          cua_so1.src = anh_nguoi_may;
+          gameOver();
+          break;
+      case 2:
+          cua_so1.src = anh_bai_bien;
+          gameOver("win");
+          break;
+
+      case 3:
+          cua_so1.src = anh_vu_tru;
+          gameOver("win");
+          break;
+      }
+      so_cua_mo++;
+      // alert("số cửa mở: " + so_cua_mo);
+    }
 };
 cua_so2.onclick = () => {
-  switch (so_ngau_nhien){
-    case 1:
-      cua_so2.src = anh_bai_bien;
-      break;
-    case 2:
-      cua_so2.src = anh_vu_tru;
-      break;
-    case 3:
-      cua_so2.src = anh_nguoi_may;
-
-      break;
-  }
+  if(is_dang_choi == true && so_cua_mo === 0){
+      switch (so_ngau_nhien){
+        case 1:
+          cua_so2.src = anh_bai_bien;
+          break;
+        case 2:
+          cua_so2.src = anh_vu_tru;
+          break;
+        case 3:
+          cua_so2.src = anh_nguoi_may;
+          gameOver();
+          break;
+          }
+          so_cua_mo++;
+          // alert("số cửa mở: " + so_cua_mo);
+      }
+    else if(is_dang_choi == true && so_cua_mo === 1){
+      switch (so_ngau_nhien){
+        case 1:
+          cua_so2.src = anh_bai_bien;
+          gameOver("win");
+          break;
+        case 2:
+          cua_so2.src = anh_vu_tru;
+          gameOver("win");
+          break;
+        case 3:
+          cua_so2.src = anh_nguoi_may;
+          gameOver();
+          break;
+          }
+      }
   }
 cua_so3.onclick = () => {
-  switch (so_ngau_nhien){
-    case 1:
-      cua_so3.src = anh_vu_tru;
-      break;
-    case 2:
-      cua_so3.src = anh_nguoi_may;
-      gameOver();
-      break;
-    case 3:
-      cua_so3.src = anh_bai_bien;
-      break;
-  }
+  if(is_dang_choi == true && so_cua_mo === 0){
+      switch (so_ngau_nhien){
+        case 1:
+          cua_so3.src = anh_vu_tru;
+          break;
+        case 2:
+          cua_so3.src = anh_nguoi_may;
+          gameOver();
+          break;
+        case 3:
+          cua_so3.src = anh_bai_bien;
+          break;
+        }
+    }
+    else if(is_dang_choi == true && so_cua_mo === 1){
+      switch (so_ngau_nhien){
+        case 1:
+          cua_so3.src = anh_vu_tru;
+          gameOver("win");
+          break;
+        case 2:
+          cua_so3.src = anh_nguoi_may;
+          gameOver();
+          break;
+        case 3:
+          cua_so3.src = anh_bai_bien;
+          gameOver("win");
+          break;
+      }
+    }
+      so_cua_mo++;
+      // alert("số cửa mở: " + so_cua_mo);
+};
+
+//restart lại game
+nut_Start.onclick = () => {
+  cua_so1.src = anh_cua_dong;
+  cua_so2.src = anh_cua_dong;
+  cua_so3.src = anh_cua_dong;
 };
 
 //Tạo hàm gameOver
-var gameOver = () => {
-  nut_Start.innerHTML = "Bạn đã thua! Click để chơi lại."
+var gameOver = (trang_thai) => {
+  if (trang_thai === "win") {
+    nut_Start.innerHTML = "Bạn đã thắng! Click để chơi lại.";
+  }
+  else {
+    nut_Start.innerHTML = "Bạn đã thua! Click để chơi lại.";
+  }
   is_dang_choi = false;
 }
 
