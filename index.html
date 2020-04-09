@@ -2,59 +2,90 @@
 <html>
   <head>
     <title>Chore Door!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" type="text/css">
   </head>
   <body>
     <div class="header">
+      <div class="container">
+        <div class="row">
         <img src= "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/logo.svg" alt="logo">
+        </div>
+      </div>
     </div>
-    <div class="tieu-de_row">
-      <img src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/star.svg" alt="ngoi sao">
-      <p class="huong-dan">Hướng dẫn</p>
-      <img src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/star.svg" alt="ngoi sao">
+    <div class="container">
+      <div class="row tieu-de_row">
+        <div class="col-12">
+            <img src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/star.svg" alt="ngoi sao">
+            <p class="huong-dan">Hướng dẫn</p>
+            <img src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/star.svg" alt="ngoi sao">
+        </div>
+      </div>
+    </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <table class="bang-huong-dan">
+          <tr>
+            <td class="so-thu-tu">1</div></td>
+            <td class="noi-dung-hd">Núp phía sau các cánh cửa này là 1 Robot quét dọn.</div></td>
+          </tr>
+          <tr>
+            <td class="so-thu-tu">2</div></td>
+            <td class="noi-dung-hd">Nhiệm vụ của bạn là mở hết các cánh cửa mà không bắt gặp con Robot này giữa chừng.</div></td>
+          </tr>
+          <tr>
+            <td class="so-thu-tu">3</div></td>
+            <td class="noi-dung-hd">Nếu bạn gặp con robot ở cánh cửa cuối cùng thì bạn thắng!</div></td>
+          </tr>
+          <tr>
+            <td class="so-thu-tu">4</div></td>
+            <td class="noi-dung-hd">Để xem bạn có thể thắng liên tục bao nhiêu ván nhé!</div></td>
+          </tr>
+        </table>
+      </div>
     </div>
 
-    <table class="bang-huong-dan">
+    <div class="row">
+        <div class="khung-cua">
 
-      <tr>
-        <td class="so-thu-tu">1</div></td>
-        <td class="noi-dung-hd">Núp phía sau các cánh cửa này là 1 Robot quét dọn.</div></td>
-      </tr>
-      <tr>
-        <td class="so-thu-tu">2</div></td>
-        <td class="noi-dung-hd">Nhiệm vụ của bạn là mở hết các cánh cửa mà không bắt gặp con Robot này giữa chừng.</div></td>
-      </tr>
-      <tr>
-        <td class="so-thu-tu">3</div></td>
-        <td class="noi-dung-hd">Nếu bạn gặp con robot ở cánh cửa cuối cùng thì bạn thắng!</div></td>
-      </tr>
-      <tr>
-        <td class="so-thu-tu">4</div></td>
-        <td class="noi-dung-hd">Để xem bạn có thể thắng liên tục bao nhiêu ván nhé!</div></td>
-      </tr>
-    </table>
-
-    <div class="khung-cua">
-      <img id="cua-1" src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/closed_door.svg" alt="closed door">
-      <img id="cua-2" src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/closed_door.svg" alt="closed door">
-      <img id="cua-3" src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/closed_door.svg" alt="closed door">
+          <img id="cua-1" src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/closed_door.svg" alt="closed door">
+          <img id="cua-2" src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/closed_door.svg" alt="closed door">
+          <img id="cua-3" src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/closed_door.svg" alt="closed door">
+        </div>
     </div>
 
-    <div class="nut-bat-dau_row" id="start">
-      Chúc may mắn!
+    <div class="row">
+      <div class="col-12">
+        <div class="nut-bat-dau_row" id="start">
+          Chúc may mắn!
+        </div>
+      </div>
     </div>
 
-    <table class="bang-ket-qua">
-      <tr>
-        <th>Số ván thắng liên tục hiện tại:</th>
-        <th>Số ván thắng liên tục cao nhất:</th>
-      </tr>
-        <tr>
-          <td> <div class="o-diem" id="diem-hien-tai">0</div></td>
-          <td> <div class="o-diem" id="diem-cao-nhat">0</div></td>
-        </tr>
-    </table>
+    <div class="row">
+      <div class="col-12">
+        <table class="bang-ket-qua">
+          <tr>
+            <th>Số ván thắng liên tục hiện tại:</th>
+            <th>Số ván thắng liên tục cao nhất:</th>
+          </tr>
+            <tr>
+              <td> <div class="o-diem" id="diem-hien-tai">0</div></td>
+              <td> <div class="o-diem" id="diem-cao-nhat">0</div></td>
+            </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+<br>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
   <script src="script.js"> type: "text/javascript"</script>
   </body>
 </html>

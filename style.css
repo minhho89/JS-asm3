@@ -6,40 +6,46 @@ body {
 }
 
 .header {
+  display: block;
   background-color: #00ffff;
+}
+
+.header img {
+  margin: 0 auto;
 }
 
 .tieu-de_row {
   color: #00ffff;
-  margin-top: 42px;
-  margin-bottom: 21px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .huong-dan {
   display: inline;
+  color: #00ffff;
 }
 
 .bang-huong-dan {
-  margin: 0 auto;
-  width: 50%;
   text-align: left;
 }
 
 td, tr {
-  padding-top: 20px;
+  padding-top: 1rem;
 }
 .so-thu-tu {
   color: #00ffff;
-  font-size: 36px;
+  /* font-size: 2rem; */
 }
 
 .noi-dung-hd {
     color: white;
-    padding-left: 40px;
+    padding-left: 1rem;
 }
 
 .khung-cua {
+  margin: auto;
   margin-top: 30px;
+  
 }
 #cua-1, #cua-2, #cua-3 {
   padding: 10px;
@@ -49,7 +55,7 @@ td, tr {
 .nut-bat-dau_row {
   margin: auto;
   width: 120px;
-  height: 50px;
+  height: 70px;
   background-color: #eb6536;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -75,3 +81,63 @@ td, tr {
   padding-top: 10px;
   font-size: 36px;
 }
+
+@media (max-width: 576px){
+
+  .container {
+    width: 100%;
+    margin: 0;
+  }
+  .row {
+    margin: 0;
+  }
+  .bang-huong-dan {
+    margin-left: 0 !important;
+  }
+  .so-thu-tu {
+    font-size: 5rem;
+  }
+  .moi-dung-hd {
+    font-size: 3rem;
+  }
+  #cua-1 img, #cua-2 img, #cua-3 img {
+    width: 5rem !important;
+  }
+}
+
+
+@media (max-width: 576px){
+  .bang-huong-dan {
+    margin-left: 50%;
+
+  }
+
+}
+
+@media (min-width: 992px) {
+  .tieu-de_row {
+    margin: 1rem auto;
+  }
+  
+  .so-thu-tu {
+    font-size: 1.5rem;
+  }
+  .moi-dung-hd {
+    font-size: 1rem;
+  }
+  .bang-huong-dan {
+    margin: auto;
+    width: 40%;
+
+  }
+  .nut-bat-dau_row {
+    width: 120px;
+    height: 70px;
+    background-color: #eb6536;
+  }
+  
+  #start {
+    margin-top: 1rem;
+  }
+}
+
